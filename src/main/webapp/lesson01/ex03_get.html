@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>링크 태그</title>
+</head>
+<body>
+	<!-- view페이지 별도로(java코드에 끼워넣지 x) -->
+	<h1>Hello world!!!</h1>
+	
+	<p>
+		<a href="/servlet/ex03">링크 태그</a> <!-- ex03 서블릿에 연결하기 : 클릭하는 순간 GetMethodEx03 클래스로 넘어감-->
+	</p>
+	
+	<p>
+		<a href="/servlet/ex03?user_id=mythe1004">아이디를 넘깁니다.</a>
+	</p>
+	
+	<p>
+		<a href="/servlet/ex03?user_id=mythe1004&name=meeyoung">아이디와 이름을 넘깁니다.</a> <!-- 파라미터 추가 시 연결은 &로 -->
+	</p>
+	
+	<p>
+		<a href="/servlet/ex03?user_id=mythe1004&name=meeyoung&age=27">아이디와 이름과 나이를 넘깁니다.</a>
+	</p>
+	
+	<!-- Request : http://localhost/lesson01/ex03_get.html => 연결 된 link : Response -->
+</body>
+</html>
+
+

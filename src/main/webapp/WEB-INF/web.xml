@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>TestServer</display-name>
+ 
+  	<!-- HelloWorldServlet -->	
+	 <servlet>
+	 	<servlet-name>hello</servlet-name>
+	 	<servlet-class>com.test.HelloWorldServlet</servlet-class>
+	 	<!--  ctrl + t 누르고 클릭해서 잘 연결되었는지 확인하기! -->
+	 </servlet>
+	 
+	 <servlet-mapping>
+	 	<servlet-name>hello</servlet-name> <!-- 서블릿 이름이 hello인것과 연결시키겠다는 뜻 -->
+	 	<!-- http://localhost/hello -->
+	 	<url-pattern>/hello</url-pattern> <!-- url pattern 에서는 / 꼭 붙이기! -->
+	 </servlet-mapping>
+		 <!-- http : 프로토콜 , 도메인(돈주고 사는 것), url Path-경로(/~?전까지) , 파라미터(?이후) : 리퀘스트아웃풋 -->
+		 <!-- Restful API (패스설계에 관한 방법론) -->
+	
+ 	<!-- UrlMappingEx01 -->	
+	<servlet>
+		<servlet-name>UrlMappingEx01</servlet-name>
+		<servlet-class>com.test.lesson01.UrlMappingEx01</servlet-class>
+	</servlet>
+	
+	<!-- 어떤 서블릿을 연결 시킬거냐 -->
+	<servlet-mapping>
+		<servlet-name>UrlMappingEx01</servlet-name>
+		<url-pattern>/servlet/ex01</url-pattern>
+	</servlet-mapping>
+ 	
+ 	<!-- UrlMappingQuiz01 -->
+ 	<servlet>
+ 		<servlet-name>UrlMappingQuiz01</servlet-name>
+ 		<servlet-class>com.test.lesson01.UrlMappingQuiz01</servlet-class>
+ 	</servlet>
+ 	
+ 	<servlet-mapping>
+ 		<servlet-name>UrlMappingQuiz01</servlet-name>
+ 		<url-pattern>/servlet/quiz01</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	<!-- UrlMappingQuiz02 -->
+ 	 	<servlet>
+ 		<servlet-name>UrlMappingQuiz02</servlet-name>
+ 		<servlet-class>com.test.lesson01.UrlMappingQuiz02</servlet-class>
+ 	</servlet>
+ 	
+ 	<servlet-mapping>
+ 		<servlet-name>UrlMappingQuiz02</servlet-name>
+ 		<url-pattern>/servlet/quiz02</url-pattern>
+ 	</servlet-mapping>
+ 	
+	<!-- 한글 깨짐 방지하기 위한 인코딩 필터 추가 -->
+ 	<filter>
+ 		<filter-name>CharacterEncodingFilter</filter-name>
+ 		<filter-class>com.test.filter.CharacterEncodingFilter</filter-class>
+ 	</filter>
+ 	
+ 	<filter-mapping>
+ 		<filter-name>CharacterEncodingFilter</filter-name>
+ 		<url-pattern>/*</url-pattern> <!-- 모든 요청(주소)에 대해서 -->
+ 	</filter-mapping>
+ 	
+</web-app>
