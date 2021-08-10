@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="/lesson02/quiz03_1.jsp">
+		<form method="get" action="/lesson02/quiz03_1.jsp">
 			<h1>체격 조건 입력</h1>
 			<input type="text" name="height" placeholder="키를 입력하세요."> cm 
 			<input type="text" name="weight" placeholder="몸무게를 입력하세요."> kg
