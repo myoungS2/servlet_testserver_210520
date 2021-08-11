@@ -18,13 +18,13 @@
 			<input type="text" class="form-cotrol col-3" name="number" placeholder="변환할 숫자를 입력하세요.">
 			<span class="ml-2">cm</span>
 			<div>
-				<label for="mintcho">인치</label>
+				<label for="inch">인치</label>
 				<input type="checkbox" name="unit" id="inch" value="인치">	
-				<label for="mintcho">야드</label>
+				<label for="yard">야드</label>
 				<input type="checkbox" name="unit" id="yard" value="야드">	
-				<label for="mintcho">피트</label>
+				<label for="feet">피트</label>
 				<input type="checkbox" name="unit" id="feet" value="피트">	
-				<label for="mintcho">미터</label>
+				<label for="meter">미터</label>
 				<input type="checkbox" name="unit" id="meter" value="미터">	
 			</div>
 			<button class="btn btn-success">변환하기</button>
