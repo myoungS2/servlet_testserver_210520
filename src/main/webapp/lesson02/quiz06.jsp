@@ -1,55 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>길이변환</title>
+<title>장보기 목록(제어문 사용)</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-</head>
 <body>
 	<%
-		double number = Integer.valueOf((request.getParameter("number")));
-		String[] unitArr = request.getParameterValues("unit");
-		
+	List<String> goodsList = Arrays.asList(new String[]{ 
+		    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
+		});
 	%>
-
-	<div>
-		<h1>길이 변환 결과</h1>
-		<h3><%= number %>cm</h3>
-		<hr>
-		<h2>
-		<%
-			if (unitArr != null) {
-				String resultUnit;
-				double result = 0;
-				for (String unit : unitArr){
-					if (unit.equals("인치")){
-						result = number * 0.393701 ;
-						resultUnit = "in";
-					} else if (unit.equals("야드")){
-						result = number * 0.010936 ;
-						resultUnit = "yd";
-					} else if (unit.equals("피트")){
-						result = number* 0.0328084 ;
-						resultUnit = "ft";
-					} else {
-						result = number/ 100.0;
-						resultUnit = "m";
-					}
-					out.println(result +" " +resultUnit + "<br>");
-				}
-			}
-		// https://github.com/superjun02/servlet_testserver/blob/develop/src/main/webapp/lesson02/quiz05_1.jsp 좋은코드!
-
-		
-		%>
-		</h2>
-	</div>
 </body>
+	<div class="container">
+		<h1>장보기 목록</h1>
+		<table border=1>
+				<thead>
+				<td>번호</td>
+				<td>품목</td>
+				</thead>
+			<tbody>	
+				<tr>	
+					<%
+					int num = 1;
+					for (String goods : goodsList) {
+						num ++;
+					
+					%>
+					<th><%= num %></th>
+					<td>
+						<%
+							out.print(goods);
+						%>
+					</td>
+				</tr>
+			</tbody>	
+			<% 	
+			}
+			%>
+		</table>
+	</div>
 </html>
