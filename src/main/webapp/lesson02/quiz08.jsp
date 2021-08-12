@@ -75,12 +75,12 @@
 			<tbody>
 				<%
 					for (Map<String,Object> bookInfo : list) {
-						Object click = bookInfo.get("id");
+						Object getId = bookInfo.get("id");
 				%>
 				<tr>
 					<td><%= bookInfo.get("id") %></td>
 					<td><img src=<%= bookInfo.get("image") %> width=100px height=130px></td>
-					<td><a href="/lesson02/quiz08_1.jsp" type="submit" name="click"><%= bookInfo.get("title") %></a></td>
+					<td><a href="/lesson02/quiz08_1.jsp?id=<%= getId %>" type="submit"><%= bookInfo.get("title") %></a></td>
 				</tr>
 				<%
 					}

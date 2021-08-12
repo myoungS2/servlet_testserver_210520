@@ -18,7 +18,7 @@
 		<div class="d-flex">
 			<input type="text" class="form-cotrol col-3" name="keyword">
 			<label class="ml-2 mt-2">
-				<input type="checkbox" name="starPointFilter" value="true">
+				<input type="checkbox" name="starpointFilter" value="true">
 				4점 이하 제외
 			</label>
 		</div>
