@@ -69,7 +69,7 @@
 						// 조건문 2 : 4점 이상만 보기가 체크되어있는지
 						if (exclude && (double) item.get("point") <= 4.0) {
 							continue;
-						}
+						} // 조건문 2 여기서 닫힘! 조건2를 통과하면 밑에 테이블이 생성되는 것!
 			%>
 						<tr>
 							<td><%= item.get("menu") %></td>

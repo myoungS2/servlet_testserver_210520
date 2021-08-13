@@ -14,9 +14,8 @@
 </head>
 <body>
 	<%
-	 Object pm = request.getParameter("id");
-		// out.print(pm); id 넘어옴ㅜㅜㅜ(감격...!)
-		
+	 // String pm = request.getParameter("getId");
+		// out.print(pm); id 넘어옴ㅜㅜㅜ(감격...!)	
 	List<Map<String, Object>> list = new ArrayList<>();
 	    Map<String, Object> map = new HashMap<String, Object>() {
 	        { 
@@ -62,23 +61,30 @@
 	    };
 	    list.add(map);	
 	    
-	    for (Map<String,Object> bookInfo : list) {
-	    	if (bookInfo.get("id").equals(pm)){
-	%>
-		<div class="d-flex">
-			<div>
-				<img src="<%= bookInfo.get("image") %>" width=200px height=230px>
-			</div>
-			<div>
-				<h1><%= bookInfo.get("title") %></h1>
-				<h2 class="text-info"><%= bookInfo.get("author") %></h2>
-				<h2 class="text-gray"><%= bookInfo.get("publisher") %></h2>
-			</div>
-		</div>
-	<%
+		int id = Integer.valueOf(request.getParameter("id"));
+	    Map<String, Object> target = new HashMap<>(); // id가 같은 것을 target에 담기 -> 출력을 편하게 하기 위해
+	    
+	    for (Map<String,Object> book: list) {
+	    	if ((int) book.get("id") == id) {
+	    		target = book;
+	    		break;
 			}
 	    	
 	    }
-	%>
+	%>		 
+		<div class="container ">
+			<div class="d-flex">
+				<%-- 표지 그림 --%>
+				<div>
+				<img src="<%= target.get("image") %>" alt="표지" width=300px>
+				</div>
+				<%-- 책 정보 --%>
+				<div>
+					<span class="display-1 d-block font-weight-bold"><%= target.get("title") %></span>
+					<span class="display-3 d-block text-info"><%= target.get("author") %></span>
+					<span class="display-4 d-block text-gray"><%= target.get("publisher") %></span>
+				</div>
+			</div>
+		</div>
 </body>
 </html>

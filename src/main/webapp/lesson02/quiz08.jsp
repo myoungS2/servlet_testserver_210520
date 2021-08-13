@@ -15,8 +15,9 @@
 <body>
 	<form method="post" action="/lesson02/quiz08_1.jsp">
 	<div class="container">
-		<h1 class="text-center"></h1>
+		<h1 class="text-center">책 목록</h1>
 		<%
+		// 하드코딩 (DB에 연동되어 있지 않은 데이터?)
 		 List<Map<String, Object>> list = new ArrayList<>();
 	    Map<String, Object> map = new HashMap<String, Object>() {
 	        { 
@@ -74,14 +75,13 @@
 			</thead>
 			<tbody>
 				<%
-					for (Map<String,Object> bookInfo : list) {
-						Object getId = bookInfo.get("id");
+					for (Map<String,Object> book : list) {
 				%>
-				<tr>
-					<td><%= bookInfo.get("id") %></td>
-					<td><img src=<%= bookInfo.get("image") %> width=100px height=130px></td>
-					<td><a href="/lesson02/quiz08_1.jsp?id=<%= getId %>" type="submit"><%= bookInfo.get("title") %></a></td>
-				</tr>
+					<tr>
+						<td><%= book.get("id") %></td>
+						<td><img src=<%= book.get("image") %> alt="표지" width=100px height=130px></td>
+						<td><a href="/lesson02/quiz08_1.jsp?id=<%= book.get("id") %>" type="submit"><%= book.get("title") %></a></td>
+					</tr>
 				<%
 					}
 				%>
