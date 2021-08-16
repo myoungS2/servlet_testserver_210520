@@ -54,8 +54,6 @@
 							int ch = Integer.valueOf(chanelMap.get("ch"));
 							String name =  chanelMap.get("name");
 							String category =  chanelMap.get("category");
-							
-							
 					%>
 						<tr>
 							<td><%= ch %></td>
@@ -63,6 +61,7 @@
 							<td><%= category %></td>
 						</tr>
 					<%
+							
 						}
 					%>
 				</tbody>

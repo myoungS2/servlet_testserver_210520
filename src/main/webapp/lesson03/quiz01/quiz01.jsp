@@ -51,7 +51,8 @@
     list.add(map);
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
-%>    
+%>  
+	<form method="post" action="/lesson03/quiz01/quiz01.jsp">  
 	<div class="text-center container">
 		<header>
 			<jsp:include page="header.jsp" /> 
@@ -66,5 +67,6 @@
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
+	</form>
 </body>
 </html>
