@@ -16,20 +16,26 @@
 <body>
 	
 	<div class="container">
-		<span>오늘부터 1일</span>
+		<h1>오늘부터 1일</h1>
+		
 		<%
 		Calendar day1 = Calendar.getInstance();
-		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d일");
-		int dDay = 100;
-		for (int i = 1; i <= 10; i++){
-			dDay = dDay * i;
-			day1.add(Calendar.DATE, + dDay);
+/* 		int dDay = 100; */
+		/* for (int i = 1; i <= 10; i++){
+			dDay = dDay * i - 100; // 100씩 더해져야하는데 혼자..난리가..남..ㅜ
+			day1.add(Calendar.DATE, + dDay); */
+		
+		day1.add(Calendar.DATE, -1);
+			
+		for (int i = 100; i <= 1000; i+= 100) {
+		day1.add(Calendar.DATE, 100);
+			
 		
 		%>
 			<div>
-				<span><%= dDay %>일 : </span>
-				<span class="text-danger"><%= sdf.format(day1.getTime()) %></span>
+				<span class="display-4"><%= i %>일 : </span>
+				<span class="display-4 text-danger"><%= sdf.format(day1.getTime()) %></span>
 			</div>
 			<%
 			}
