@@ -1,46 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Melong</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="container">
-	<header class="d-flex">
-		<%-- 로고영역 --%>
-		<div>
-			<h3 class="text-success">Melong</h3>
-		</div>
-		<%-- 검색영역 --%>
-		<div class="d-flex">
-			<input type="text" class="form-control"><button type="button" class="bg-info">검색</button>
-		</div>
-	</header>
-		<%-- 메뉴영역 --%>	
-		<nav class="d-flex font-weight-bold">
-			<ul class="nav nav-fill">
-				<li class="nav-item"><a href="#" class="nav-link">멜롱챠트</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">최신음악</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">장르음악</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">멜롱DJ</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">뮤직어워드</a></li>
-			</ul>
-		</nav>
-		<%-- 컨텐츠 영역 --%>
-		<div class="contents">
-			<div>
-				
-			</div>
+<%@ page import="java.util.*" %>      
+<div class="contents">
 			<%-- 가수 정보 --%>
 			<div class="content1 d-flex">
 				<%
@@ -53,7 +14,7 @@
 				
 				%>
 				<div>
-					<img src="<%= artistInfo.get("photo") %>" width: 50px; height:150px;>		
+					<img src="<%= artistInfo.get("photo") %>" alt="가수 이미지" width="150px">		
 				</div>
 				<div>
 					<h2><%= artistInfo.get("name") %></h2>
@@ -61,6 +22,7 @@
 					<h4><%= artistInfo.get("debute") %>데뷔</h4>
 				</div>
 			</div>
+			
 			<%-- 곡 목록 --%>
 			<div>
 				<h2>곡 목록</h2>
@@ -146,13 +108,13 @@
 						</thead>
 						<tbody>
 							<%
-								for(Map<String, Object> music : musicList) {
-									
+								for(Map<String, Object> info : musicList) {
 							%>
 								<tr>
-									<td><%= music.get("id") %></td>
-									<td><a href="quiz02.jsp?<%= music.get("title")%>"><%= music.get("title") %></a></td>
-									<td><%= music.get("album") %></td>
+									<td><%= info.get("id") %></td>
+									<%-- 리퀘스트2 --%>
+									<td><a href="info_template.jsp?id=<%= info.get("id")%>"><%= info.get("title") %></a></td>
+									<td><%= info.get("album") %></td>
 								</tr>
 							<%
 								}
@@ -160,11 +122,4 @@
 						</tbody>
 					</table>
 			</div>
-		</div>
-		
 </div>
-	
-	
-</div>
-</body>
-</html>
