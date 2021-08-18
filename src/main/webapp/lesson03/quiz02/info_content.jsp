@@ -108,15 +108,25 @@
 			}
 		}
 	}
-	out.print(target);
+	
+	// out.print(target);
 
 %>
 
+<%-- 곡정보 --%>
+<img class="alnum-size" src="<%= target.get("thunbnail")%>">
 
+<div class="display-4"><%= target.get("title") %></div>
 
+<div>
+	<%= (int) target.get("time") / 60 %>:<%= (int) target.get("time") % 60  %> <%-- 분, 초 나타내기 (object->int)로  --%>
+</div>
 
+<%-- 검색어가 없을 경우 target == null --%>
 
-
+<section class="contents">
+	<h1> 정보 없음 </h1>
+</section>
 
 
 
