@@ -18,22 +18,27 @@ public class Lesson04Quiz01 extends HttpServlet {
 	@Override
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/plain");
-		
+
+		// DB 연결
 		MysqlService mysqlService = MysqlService.getInstance();
 		
-		// DB 연결
 		mysqlService.connection();
 		
 		// 쿼리 수행
-		
+
 		// insert
-		String insertQuery = "insert into `real_estate`(`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`)"
-				+ "values (3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, null)";
+		String insertQuery = "insert into `real_estate`(realtorId, address, area, type, price, rentPrice)"
+				+ "values (3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, NULL)";
+		try {
+			mysqlService.update(insertQuery);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		// select 
-		
 		String selectQuery = "select `address`, `area`, `type` from `real_estate`"
-				+ " 			order by `id` limit 10";
+								+ " order by `id` DESC limit 10";
 		
 		PrintWriter out = response.getWriter();
 		ResultSet result = null;
@@ -45,7 +50,7 @@ public class Lesson04Quiz01 extends HttpServlet {
 		}
 		try {
 			while (result.next()) {
-				out.println("매물 주소" + result.getString("address") + "," + result.getString("area")
+				out.println("매물 주소 : " + result.getString("address") + "," + result.getString("area")
 				+ "," + result.getString("type"));
 				
 			}
