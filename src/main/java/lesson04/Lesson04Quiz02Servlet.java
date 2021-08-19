@@ -22,7 +22,7 @@ public class Lesson04Quiz02Servlet extends HttpServlet{
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 		
-		// 쿼리 insert 
+		// insert 쿼리
 		String insertQuery = "insert into bookmark (name, url)"
 				+ "values ('" + name + "', '" + url + "')";
 		
@@ -36,7 +36,7 @@ public class Lesson04Quiz02Servlet extends HttpServlet{
 		// DB 연결 해제
 		mysqlService.disconnect();
 		
-		// redirect(유저 목록 화면)
+		// 리다이렉트
 		response.sendRedirect("/lesson04/quiz02_1.jsp");
 	}
 }

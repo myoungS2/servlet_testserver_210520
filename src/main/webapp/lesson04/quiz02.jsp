@@ -12,7 +12,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-	<h2>즐겨찾기 추가</h2>
+	<h3>즐겨찾기 추가</h3>
 	<form method="post" action="/lesson04/quiz02_insert">
 		<p>
 			<strong>사이트명:</strong> 

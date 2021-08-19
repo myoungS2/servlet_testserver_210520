@@ -19,6 +19,7 @@
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 		
+		// select 쿼리
 		String selectQuery = "select * from `bookmark` ";
 		ResultSet result = mysqlService.select(selectQuery);
 	%>

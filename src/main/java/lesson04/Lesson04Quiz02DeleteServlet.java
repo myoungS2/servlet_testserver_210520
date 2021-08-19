@@ -22,7 +22,7 @@ public class Lesson04Quiz02DeleteServlet extends HttpServlet {
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 
-		// DELETE 쿼리 수행
+		// delete 쿼리
 		String deleteQuery = "delete from `bookmark` where name = " + name;
 		try {
 			mysqlService.update(deleteQuery);
@@ -34,7 +34,7 @@ public class Lesson04Quiz02DeleteServlet extends HttpServlet {
 		// DB 연결 해제
 		mysqlService.disconnect();
 
-		// 목록 화면으로 이동 (redirect)
+		// 리다이렉트
 		response.sendRedirect("/lesson04/quiz02_1.jsp");
 
 	}
