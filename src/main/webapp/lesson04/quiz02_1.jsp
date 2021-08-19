@@ -38,7 +38,7 @@
 				<tr>
 					<td><%= result.getString("name") %></td>
 					<td><%= result.getString("url") %></td>
-					<td><a href="/lesson04/quiz02_delete?name=<%= result.getString("name") %>">삭제하기</a></td>
+					<td><a href="/lesson04/quiz02_delete?id=<%= result.getInt("id") %>">삭제하기</a></td>
 				</tr>
 			<%
 				}

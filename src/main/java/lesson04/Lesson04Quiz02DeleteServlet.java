@@ -16,14 +16,14 @@ public class Lesson04Quiz02DeleteServlet extends HttpServlet {
 	@Override
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String name = request.getParameter("name");
+		int id = Integer.valueOf(request.getParameter("id"));
 		
 		// DB 연결
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 
 		// delete 쿼리
-		String deleteQuery = "delete from `bookmark` where name = " + name;
+		String deleteQuery = "delete from `bookmark` where id = " + id ;
 		try {
 			mysqlService.update(deleteQuery);
 		} catch (SQLException e) {
