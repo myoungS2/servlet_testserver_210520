@@ -12,16 +12,20 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="quiz03_style.css">
 </head>
 <body>
 	<div id="wrap" class="container">
-		<header class="bg-danger text-white">
+		<header>
+			<div class="d-flex justify-content-center align-items-center">
 			<h3>HONG당무 마켓</h3>
+			</div>
 		</header>
-		<nav  class="d-flex bg-danger text-white">
-			<ul class="nav nav-fill">
-				<li class="nav-item font-weight-bold"><a href="#" class="nav-link">리스트</a></li>
-				<li class="nav-item font-weight-bold"><a href="#" class="nav-link">물건올리기</a></li>
+		<nav class="d-flex">
+			<ul class="nav nav-fill w-100 justify-content-around">
+				<li class="nav-item font-weight-bold"><a href="quiz03.jsp?list=리스트" class="nav-link">리스트</a></li>
+				<li class="nav-item font-weight-bold"><a href="quiz03_1.jsp" class="nav-link">물건올리기</a></li>
 				<li class="nav-item font-weight-bold"><a href="#" class="nav-link">마이페이지</a></li>
 			</ul>
 		</nav>
@@ -31,37 +35,35 @@
 			mysqlService.connection();
 			
 			// select 쿼리
-			String selectQuery1 = "select * from `seller` where ";
-			ResultSet result1 = mysqlService.select(selectQuery1);
-			String selectQuery2 = "select * from `used_goods` order by `id` DESC";
-			ResultSet result2 = mysqlService.select(selectQuery2);
+			String selectQuery = "select seller.*, used_goods.* from seller join used_goods on seller.id= used_goods.sellerId order by seller.id";
+			ResultSet result = mysqlService.select(selectQuery);
 		%>
 		<section class="contents">
 			<article class="d-flex flex-wrap justify-content-around">
 				<%
-					while (result2.next()) { 
-						while (result1.next()){
+					while (result.next()) { 
+						// while (result1.next()){ 중첩x join문 사용해서 한번에 가져오기!
 				%>
-					<div>
+					<div class="width:300px height:100px">
 						<%
-							if(result2.getString("picture") != null) {
+							if(result.getString("picture") != null) {
 							
 						%>
-						<img src="<%= result2.getString("picture") %>" alt="판매사진">
+						<img src="<%= result.getString("picture") %>" alt="판매사진" width="400px" height="250px" >
 						<%
 							} else {
 								
 						%>
-						<img src="https://img.baro.company/BARO/Images/382d56cb-c6af-4422-b6fc-82d021cd2138.png" alt="판매사진">
+						<img src="https://img.baro.company/BARO/Images/382d56cb-c6af-4422-b6fc-82d021cd2138.png" alt="판매사진" width="300px" height="100px" >
 						<%
 							}
 						%>
-						<div class="font-weight-bold"><%= result2.getString("title") %></div>
-						<div class="text-secondary"><small><%= result2.getInt("price") %>원</small></div>
-						<div class="text-danger"><%= result2.getString("sellerId") %></div>
+						<div class="font-weight-bold"><%= result.getString("title") %></div>
+						<div class="text-secondary"><small><%= result.getInt("price") %>원</small></div>
+						<div class="text-danger"><%= result.getString("nickname") %></div>
 					</div>
 				<%
-						}
+						// }
 					}
 				// DB 해제
 				mysqlService.disconnect();

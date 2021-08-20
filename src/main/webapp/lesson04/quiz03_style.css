@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+a {text-decoration:none; color:#fff;}
+a:hover {text-decoration:none; color:#fff;}
+
+.wrap {width: 1000px;}
+
+header {height: 200px; color:#fff; background-color:#F15208;}
+nav {height: 100px; color:#fff; background-color:#F15208;}
+nav #nav {width: 1000px;}
