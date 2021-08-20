@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +16,15 @@
 	<h3>즐겨찾기 추가</h3>
 	<form method="post" action="/lesson04/quiz02_insert">
 		<p>
-			<strong>사이트명:</strong> 
-			<input type="text" name="name">
+			<label for="name">사이트명:</label> 
+			<input type="text" class="form-control col-3" id="name" name="name">
 		</p>
 		<p>
-			<strong>사이트 주소:</strong>
-			<input type="text" name="url">
+			<label from="name">사이트 주소:</label>
+			<input type="text" class="form-control col-7" id="url" name="url">
 		</p>
-
 		<p>
-			<button type="submit" class="btn btn-success">추가</button>
+			<button type="submit" class="btn btn-success mt-3">추가</button>
 		</p>
 	</form>
 </body>
